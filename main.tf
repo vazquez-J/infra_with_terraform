@@ -8,7 +8,7 @@ module "image" {
 module "container" {
   source = "./container"
   image = "${module.image.image_out}"
-  name = "${var.container_name}"
-  inter_port = "${var.inter_port}"
-  exter_port = "${var.exter_port}"
+  name = "${lookup(var.container_name, var.env)}"
+  inter_port = "${lookup(var.inter_port, var.env)}"
+  exter_port = "${lookup(var.exter_port, var.env)}"
 }
