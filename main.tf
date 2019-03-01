@@ -1,7 +1,7 @@
 # Download the latest Ghost image
 module "image" {
   source = "./image"
-  image = "${var.image}"
+  image = "${lookup(var.image, var.env)}"
 }
 
 # Start the Container
